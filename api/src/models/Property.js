@@ -1,15 +1,14 @@
 const { DataTypes } = require('sequelize');
 
-
 module.exports = (sequelize) => {
     sequelize.define('property', {
-        name: {
-            type: DataTypes.text,
-            allowNull: false,
-            unique: true
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true
         },
-        value: {
-            type: DataTypes.INTEGER
+        name: {
+            type: DataTypes.TEXT,
         }
-    },{ timestamps: false });
+    }, { timestamps: false });
+    
 };

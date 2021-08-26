@@ -6,8 +6,8 @@ const path = require('path');
 
 const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/vehicles',
 {
-    logging: false
-});
+    logging: false  
+})
 
 const basename = path.basename(__filename);
 
@@ -27,16 +27,17 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Category, Vehicle, Property } = sequelize.models;
+const { Category, Vehicle, Property, PropertyValue } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-Vehicle.belongsToMany(Property, { through: 'vehicle_property' });
-Property.belongsToMany(Vehicle, { through: 'vehicle_property' });
-Category.hasMany(Property);
-Property.belongsTo(Category);
+Category.hasMany(Property, { foreignKey: 'categoryProperty', sourceKey: 'id' });
+Property.belongsTo(Category, { foreignKey: 'categoryProperty', sourceKey: 'id' });
+PropertyValue.belongsTo(Vehicle, { foreignKey: 'valueVehicle', sourceKey: 'id' });
+PropertyValue.belongsTo(Property, { foreignKey: 'valueProperty', sourceKey: 'id' });
+Vehicle.belongsTo(PropertyValue, { foreignKey: 'valueVehicle', sourceKey: 'id' });
+Property.belongsTo(PropertyValue, { foreignKey: 'valueProperty', sourceKey: 'id' });
 
 module.exports = {
-    ...sequelize.models, 
-    conn: sequelize,     
+    sequelize
 };
