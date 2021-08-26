@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
     sequelize.define('property', {
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.text,
             allowNull: false,
             unique: true
         },

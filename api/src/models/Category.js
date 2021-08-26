@@ -6,10 +6,10 @@ module.exports = (sequelize) => {
         name: {
             type: DataTypes.TEXT,
             allowNull: false,
-            unique:true
+            unique: true
         },
         icon: {
             type: DataTypes.STRING
-          }
-    },{ timestamps: false });
+        }
+    }, { timestamps: false });
 };

@@ -4,9 +4,9 @@ const fs = require('fs');
 const path = require('path');
 // const { DATABASE_URL } = process.env;
 
-const sequelize = new Sequelize('poastgres', 'postgres', 'password', {
-    host: 'localhost',
-    dialect: 'postgres'
+const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/vehicles',
+{
+    logging: false
 });
 
 const basename = path.basename(__filename);
@@ -32,7 +32,9 @@ const { Category, Vehicle, Property } = sequelize.models;
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 Vehicle.belongsToMany(Property, { through: 'vehicle_property' });
-Property.belongsToMany(Category, { through: 'property_category' });
+Property.belongsToMany(Vehicle, { through: 'vehicle_property' });
+Category.hasMany(Property);
+Property.belongsTo(Category);
 
 module.exports = {
     ...sequelize.models, 
