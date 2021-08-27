@@ -28,7 +28,7 @@ const getVehicles = async (req, res) => {
 const getVehicleDetail = async (req, res) => {
     const vehicleId = req.params.id;
     const vehicle = await Vehicle.findAll({ where: { id: vehicleId } });
-    
+
     if (!vehicle.length) {
         res.status(404).json({ error: "El id no corresponde a un vehículo" })
     } else {
@@ -52,7 +52,21 @@ const getVehicleDetail = async (req, res) => {
     };
 };
 
+const updateValue = async (req, res) => {
+    const { newValue, vehicleId, propertyId } = req.body;
+    const result = await PropertyValue.update({
+        value: parseInt(newValue)
+    }, {
+        where: {
+            valuevehicle: parseInt(vehicleId),
+            valueproperty: parseInt(propertyId)
+        }
+    });
+    return res.status(200).json(result);
+}
+
 module.exports = {
     getVehicles,
-    getVehicleDetail
+    getVehicleDetail,
+    updateValue
 }

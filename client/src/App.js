@@ -1,4 +1,5 @@
 import { Route } from 'react-router-dom';
+import Categories from './components/Categories';
 import Home from './components/Home';
 import LandingPage from './components/LandingPage';
 import NavBar from './components/NavBar';
@@ -11,9 +12,11 @@ function App() {
       <Route component={LandingPage}
         exact path='/' />
       <Route component={NavBar}
-        path={['/home', '/properties/:id']} />
+        path={['/home', '/categories/:id']} />
       <Route component={Home}
-        path='/home' />
+        exact path='/home' />
+        <Route component={Categories}
+        path='/categories/:id' />
     </>
   );
 }

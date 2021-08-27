@@ -1,8 +1,8 @@
-import { GET_VEHICLES, GET_VEHICLE_ALL_DATA, LOADING } from "../actions";
+import { GET_VEHICLES, GET_VEHICLE_ALL_DATA, LOADING, UPDATE_VALUE } from "../actions";
 
 const initialState = {
     vehicles: [],
-    vehicleAllDate: {},
+    vehicleAllData: {},
     loading: false
 };
 
@@ -17,9 +17,11 @@ const reducer = (state = initialState, { payload, type }) => {
         case GET_VEHICLE_ALL_DATA:
             return {
                 ...state,
-                vehicleAllDate: payload,
+                vehicleAllData: payload,
                 loading: false
             };
+        case UPDATE_VALUE:
+            return state;
         case LOADING:
             return {
                 ...state,

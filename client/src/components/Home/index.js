@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getVehicles } from '../../redux/actions';
+import VehicleCard from '../VehicleCard';
+import StyledHome from './styled';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -8,12 +10,15 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getVehicles());
-    },[dispatch]);
+    }, [dispatch]);
 
     return (
-        <div>
-            <h1>{store.vehicles[0].name}</h1>
-        </div>
+        <StyledHome>
+            <div className="cards">
+                {store.vehicles.length && store.vehicles.map(vehicle =>
+                    <VehicleCard vehicle={vehicle} key={`vehicle-${vehicle.id}`} />)}
+            </div>
+        </StyledHome>
     )
 };
 

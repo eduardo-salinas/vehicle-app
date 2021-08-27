@@ -14,11 +14,11 @@ const NavBar = () => {
                         <GiCarWheel />
                     </Link>
                 </Navbar.Brand>
-                <Nav.Link>
+                <Nav>
                     <Link to="/home">
                         Home
                     </Link>
-                </Nav.Link>
+                </Nav>
             </Container>
         </Navbar>
     )
