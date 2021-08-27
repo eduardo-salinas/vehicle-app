@@ -10,6 +10,14 @@ const GlobalStyle = createGlobalStyle`
     color:#311D3F;
     letter-spacing: 0.1em;
 }
+a{
+    color:#311D3F;
+    text-decoration:none;
+}
+a:hover{
+    color:#311D3F;
+    transform: scale(1.2);
+}
 body{
     width: 100%;
     height: 100%;
@@ -19,16 +27,7 @@ body{
     background-attachment: fixed;    
     background-repeat: no-repeat;
 }
-a{
-    text-decoration:none ;
-}
-button{
-    display:flex; 
-    align-items:center ;
-    text-align:center;
-    color : #311D3F ;
-    border:solid #311D3F ;
-}
+
 `
 
 
