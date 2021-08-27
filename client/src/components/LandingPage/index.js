@@ -9,9 +9,11 @@ const LandingPage = () => {
 
     return (
         <StyledLandingPage>
-            <Link to='/home'>
-                <Button variant='danger'><GiCarWheel />START</Button>
-            </Link>
+            <div>
+                <Link to='/home'>
+                    <Button variant='light' size="lg"><GiCarWheel />START</Button>
+                </Link>
+            </div>
         </StyledLandingPage>
     )
 };
