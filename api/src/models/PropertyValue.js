@@ -1,13 +1,15 @@
 const { DataTypes } = require('sequelize');
+const sequelize = require('../db.js');
 
-module.exports = (sequelize) => {
-    sequelize.define('propertyValue', {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true
-        },
-        value: {
-            type: DataTypes.INTEGER
-        }
-    }, { timestamps: false });
-};
+const PropertyValue = sequelize.define('propertyvalue', {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true
+    },
+    value: {
+        type: DataTypes.INTEGER
+    }
+}, { timestamps: false });
+
+
+module.exports = PropertyValue;

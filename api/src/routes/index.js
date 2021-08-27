@@ -1,13 +1,12 @@
 const { Router } = require('express');
+const { getVehicles, getVehicleDetail } = require('./utils');
 
 const router = Router();
 
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
-router.get('/recipes', async (req, res) => {
-   
-});
 
+router.get('/vehicles', getVehicles);
+
+router.get('/vehicles/:id', getVehicleDetail);
 
 module.exports = router;
