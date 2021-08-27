@@ -30,16 +30,16 @@ CREATE TABLE IF NOT EXISTS propertyValues(
 -- INSERT VEHICLES CATEGORIES
 
 INSERT INTO categories(name, icon)
-    VALUES('Documentos','documentos');
+    VALUES('Documentos','https://img.icons8.com/ios/50/000000/document.png');
 
 INSERT INTO categories(name, icon)
-    VALUES('Motor','motor');
+    VALUES('Motor','https://img.icons8.com/ios/50/000000/engine.png');
 
 INSERT INTO categories(name, icon)
-    VALUES('Ruedas y frenos','ruedas');
+    VALUES('Ruedas y frenos','https://img.icons8.com/fluency/48/000000/wheel.png');
 
 INSERT INTO categories(name, icon)
-    VALUES('Exterior','ext');
+    VALUES('Exterior','https://img.icons8.com/dotty/80/000000/car.png');
 
 -- INSER PROPERTY DATA
 

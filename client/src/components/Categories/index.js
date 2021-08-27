@@ -37,6 +37,7 @@ const Categories = ({ match }) => {
                                             value={property.value[0].value}
                                             propertyId={property.id}
                                             vehicleId={store.vehicleAllData.vehicle[0].id}
+                                            img={category.icon}
                                         />
                                     )}
                                 </Tab>

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import ReactStars from 'react-stars'
 import { updateValue } from '../../redux/actions';
 
-const Properties = ({ name, value, propertyId, vehicleId }) => {
+const Properties = ({ name, value, propertyId, vehicleId, img }) => {
     const dispatch = useDispatch();
 
     const ratingChanged = (value) => {
@@ -18,6 +18,7 @@ const Properties = ({ name, value, propertyId, vehicleId }) => {
 
     return (
         <Card variant="ligth" className="prop">
+            <img src={img} alt="" />
             <Card.Text>{name}</Card.Text>
             <ReactStars
                 count={5}
