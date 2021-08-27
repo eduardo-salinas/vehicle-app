@@ -5,9 +5,9 @@ const path = require('path');
 // const { DATABASE_URL } = process.env;
 
 const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/vehicles',
-{
-    logging: false  
-})
+    {
+        logging: false
+    })
 
 const basename = path.basename(__filename);
 
@@ -31,13 +31,14 @@ const { Category, Vehicle, Property, PropertyValue } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-Category.hasMany(Property, { foreignKey: 'categoryProperty', sourceKey: 'id' });
-Property.belongsTo(Category, { foreignKey: 'categoryProperty', sourceKey: 'id' });
-PropertyValue.belongsTo(Vehicle, { foreignKey: 'valueVehicle', sourceKey: 'id' });
-PropertyValue.belongsTo(Property, { foreignKey: 'valueProperty', sourceKey: 'id' });
+Category.hasMany(Property, { as:'category-property',foreignKey: 'categoryProperty', sourceKey: 'id' });
+Property.belongsTo(Category, { as:'property-category',foreignKey: 'categoryProperty', sourceKey: 'id' });
+PropertyValue.belongsTo(Vehicle, { as: 'propValue-vehicle', foreignKey: 'valueVehicle', sourceKey: 'id' });
+PropertyValue.belongsTo(Property, { as: 'propValue', foreignKey: 'valueProperty', sourceKey: 'id' });
 Vehicle.belongsTo(PropertyValue, { foreignKey: 'valueVehicle', sourceKey: 'id' });
 Property.belongsTo(PropertyValue, { foreignKey: 'valueProperty', sourceKey: 'id' });
 
 module.exports = {
-    sequelize
+    ...sequelize.models,
+    conn: sequelize,
 };
