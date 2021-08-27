@@ -27,7 +27,12 @@ body{
     background-attachment: fixed;    
     background-repeat: no-repeat;
 }
-
+.spinner{
+    margin-top: 10rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 `
 
 
