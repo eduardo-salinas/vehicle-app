@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Spinner, Tab, Tabs } from 'react-bootstrap';
+import { Card, Spinner, Tab, Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getVehicleAllData } from '../../redux/actions';
 import Properties from '../Properties';
@@ -22,7 +22,15 @@ const Categories = ({ match }) => {
                 </div>
                 :
                 <StyledCategory>
-                    <div>
+                        <Card.Title variant="ligth" className="prop">
+                            {store.vehicleAllData.vehicle &&
+                                <>
+                                    <Card.Text>{store.vehicleAllData.vehicle[0].name}</Card.Text>
+                                    <Card.Text>{store.vehicleAllData.vehicle[0].patent}</Card.Text>
+                                </>
+                            }
+                        </Card.Title>
+                    <div className="categ">
                         <Tabs defaultActiveKey="profile" className="mb-3">
                             {store.vehicleAllData.categories && store.vehicleAllData.categories.map(category =>
                                 <Tab

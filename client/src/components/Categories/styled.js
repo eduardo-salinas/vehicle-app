@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 
 const StyledCategory = styled.div`
-display: flex;
-align-items: center;
+
 margin: 2rem;
 padding:1rem;
 background-color: rgb(247, 246, 242,0.7); 
@@ -12,6 +11,11 @@ color : #311D3F ;
 border: solid #311D3F;
 button{
     color : #311D3F ;
+}
+.categ{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .prop{
     padding:1rem;
