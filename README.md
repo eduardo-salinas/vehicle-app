@@ -3,7 +3,7 @@
 </p>
 
 # Vehicle-App
-- Aplicacion web que nos permite ver vehiclos y poder modificar el estado de sus partes, luces, motor, frenos, etc.
+- Aplicacion web que nos permite ver vehiculos y poder modificar el estado de sus partes, luces, motor, frenos, etc.
 - Se creo tanto el back como el front. El diseño es Full Responsive.
 
 ## Tecnologías utilizadas :computer: 
